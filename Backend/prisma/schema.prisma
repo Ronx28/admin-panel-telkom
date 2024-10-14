@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model data_user {
+  timestamp          String
+  idTele        String        @id
+  nama          String
+  email         String
+  telepon       String
+  password      String
+  devisi        String?
+  subDevisi     String?
+  videoLink     String?
+
+
+  // Relations
+  devisiRelation    data_devisi?     @relation("UserDevisi", fields: [devisi], references: [namaDevisi])
+  subDevisiRelation data_sub_devisi? @relation("UserSubDevisi", fields: [subDevisi], references: [namaSubDevisi])
+}
+
+
+
+model data_devisi {
+  id          Int               @id @default(autoincrement())
+  namaDevisi  String            @unique
+  users       data_user[]       @relation("UserDevisi")
+  pertanyaans data_pertanyaan[] @relation("DevisiPertanyaan")
+}
+
+model data_sub_devisi {
+  id            Int               @id @default(autoincrement())
+  namaSubDevisi String            @unique
+  users         data_user[]       @relation("UserSubDevisi")
+  pertanyaans   data_pertanyaan[] @relation("SubDevisiPertanyaan")
+}
+
+model data_pertanyaan {
+  id          Int    @id @default(autoincrement())
+  devisiId    Int
+  subDevisiId Int
+  pertanyaan  String
+
+  // Relations
+  devisi    data_devisi     @relation("DevisiPertanyaan", fields: [devisiId], references: [id])
+  subDevisi data_sub_devisi @relation("SubDevisiPertanyaan", fields: [subDevisiId], references: [id])
+}

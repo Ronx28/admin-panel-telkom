@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/",
+    "title": "Dashboard",
+    "icon": "bx bxs-dashboard"
+  },
+  {
+    "path": "/users",
+    "title": "Users",
+    "icon": "bx bxs-user-account"
+  },
+  {
+    "path": "/dataDev",
+    "title": "data",
+    "icon": "bx bx-data"
+  },
+  {
+    "path": "/question",
+    "title": "Question",
+    "icon": "bx bxs-file"
+  }
+]
