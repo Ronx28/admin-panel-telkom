@@ -5,7 +5,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const cors = require('cors');
 const { updateDatabaseFromSheet } = require('./sync');
-
+const port = process.env.PORT || 4000;
 const app = express();
 
 // Middleware untuk mengatur CORS
@@ -149,6 +149,6 @@ app.use((req, res) => {
 });
 
 // Menjalankan server di port 4000
-app.listen(4000, () => {
-  console.log(`Server started on http://localhost:5000/ with base directory ${__dirname}`);
+pp.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
