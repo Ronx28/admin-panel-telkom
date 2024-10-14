@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware untuk mengatur CORS
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://admin-panel-telkom-frontend.vercel.app'
 }));
 
 // Middleware untuk parsing JSON dan URL-encoded data
