@@ -30,7 +30,8 @@ const UsersTable = () => {
   // Fungsi untuk fetch data dari backend
   const fetchTableData = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/UserTable');
+      const response = await fetch('https://admin-panel-telkom-backend.vercel.app/api/UserTable');
+
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
