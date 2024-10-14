@@ -10,7 +10,7 @@ export default function Dashboard() {
   // Fungsi untuk fetch data pengguna (Total Users)
   const fetchUserCount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/UserTable');
+      const response = await fetch('https://admin-panel-telkom-backend.vercel.app/api/UserTable');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
