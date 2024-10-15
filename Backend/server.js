@@ -7,8 +7,8 @@ const cors = require('cors');
 const { updateDatabaseFromSheet } = require('./sync');
 const port = process.env.PORT || 4000;
 const app = express();
-
-// Middleware untuk mengatur CORS
+try {
+  // Middleware untuk mengatur CORS
 app.use(cors({
   origin: ['http://localhost:3000', 'https://admin-panel-telkom-frontend.vercel.app'], // domain frontend
   methods: 'GET,POST,DELETE,PUT', // Menentukan metode yang diperbolehkan
@@ -153,3 +153,7 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
+} catch (error) {
+  console.log(error)
+}
